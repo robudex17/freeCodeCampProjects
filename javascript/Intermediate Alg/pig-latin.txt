@@ -1,0 +1,37 @@
+
+function translatePigLatin(str) {
+ var regex = /[aeiou]/;
+  
+  if(!regex.test(str)){
+    return str + 'ay'
+  }
+  var count = 0;
+  var letter ;
+  var split = str.split('')
+
+  for(let i = 0 ; i<split.length ; i++){
+    
+    if(regex.test(split[0])){
+       
+      return str + 'way'
+    }
+    
+    if(regex.test(str[i])){
+     break;
+    }
+    
+    if(!regex.test(str[i])){
+      count++;
+      letter += split[i];
+    }
+    
+  }
+  
+ 
+  letter = split.splice(0,count)
+  return [ ...split, ...letter].join("") + 'ay'
+  
+ 
+}
+
+console.log(translatePigLatin("glove"))

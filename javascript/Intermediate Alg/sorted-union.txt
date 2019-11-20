@@ -1,0 +1,15 @@
+function uniteUnique(arr) {
+
+  var args = Array.prototype.slice.call(arguments)
+   var myArr = args[0]; 
+   for(let i =1; i< args.length ; i++){
+      for(let j=0; j<args[i].length; j++){
+        if(myArr.indexOf(args[i][j]) == -1){
+          myArr.push(args[i][j])
+        }
+      }
+   }
+  return myArr
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);

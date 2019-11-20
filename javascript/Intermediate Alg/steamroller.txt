@@ -1,0 +1,13 @@
+function steamrollArray(arr) {
+  let newArr = []
+  while(arr.length > 0){
+    if(Array.isArray(arr[0])){
+      arr = arr.flat()
+    }else{
+      newArr.push(arr.shift())
+    }
+  }
+ return newArr
+}
+
+steamrollArray([1, [], [3, [[4]]]]);

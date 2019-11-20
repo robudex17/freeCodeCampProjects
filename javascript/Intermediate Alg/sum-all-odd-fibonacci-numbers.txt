@@ -1,0 +1,15 @@
+function sumFibs(num) {
+  let fibArr = [1]
+  let x = 1;
+  let i = 0;
+  while(x<= num){
+    fibArr.push(x)
+    x= fibArr[i] + fibArr[i+1];
+    i++;
+  }
+  return fibArr.filter(function(item){
+    return item & 1
+  }).reduce((total, item) => total+item)
+}
+
+console.log(sumFibs(1));

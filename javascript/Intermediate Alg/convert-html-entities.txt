@@ -1,0 +1,31 @@
+function convertHTML(str) {
+  let regex = /[&<>"']/
+  
+  
+  for(let i = 0 ; i< str.length; i++){
+    if(str[i].match(regex)){
+      switch(str[i]){
+        case '&':
+          str = str.replace('&', '&amp;')
+          break;
+        case '<':
+          str = str.replace('<', '&lt;')
+          break;
+        case '>':
+          str = str.replace('>', '&gt;')
+          break;
+        case '"':
+          str = str.replace('"', '&quot;')
+          break;
+        case "'":
+          str = str.replace("'", '&apos;')
+          break;
+        
+      }
+    }
+  }
+  
+ return str
+}
+
+console.log(convertHTML('Stuff in "quotation marks"'));

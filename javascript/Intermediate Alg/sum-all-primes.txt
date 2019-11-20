@@ -1,0 +1,25 @@
+function sumPrimes(num) {
+  
+  
+  let x= 1;
+  let total = 0;
+  while(x<=num){
+    if(isPrime(x)){
+      total += x;
+    }
+    x++;
+  }
+
+  
+  function isPrime(num) {
+  for(var i = 2; i < num; i++)
+    if(num % i === 0) return false;
+  return num > 1;
+}
+
+  
+return total;
+}
+
+sumPrimes(10);
+

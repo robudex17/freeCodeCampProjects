@@ -1,0 +1,25 @@
+function spinalCase(str) {
+  // "It's such a fine line between stupid, and clever."
+  // --David St. Hubbins
+   var myStr = str[0];
+  var regex = /[A-Z]/
+  for(let i =1 ; i<str.length ; i++){
+    
+    if(regex.test(str[i])){
+     
+     var addSpace = ' ' + str[i]
+     myStr += addSpace
+  }
+  else{
+     myStr += str[i]
+  
+  }
+    
+    
+  }
+return myStr.replace(/_/g, '').replace(/\s+/g , '-').toLowerCase()
+}
+              
+           
+
+spinalCase('Teletubbies say Eh-oh');

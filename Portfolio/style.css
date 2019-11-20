@@ -1,0 +1,107 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    position: fixed;
+    top: 0px;
+    right:  0px;
+    background-color: #8C061C;
+    width: 100%;
+}
+nav ul {
+    list-style-type: none;
+    float: right;
+    margin-right: 20px;
+   
+}
+
+nav ul li {
+    display: inline;
+}
+nav ul li a {
+    color: white;
+    font-size: 20px;
+    padding: 10px; 
+    text-decoration: none !important;
+    margin: 0;
+
+}
+nav ul li a:hover {
+    background-color: darkblue;
+    
+}
+
+#welcome-section {
+    display: flex;
+    height: 100vh;
+    overflow: auto;
+    background: #1E1D1A;
+    justify-content: center;
+    align-items: center;
+}
+
+#welcome-section div {
+    padding-top:40px  ;
+    
+    text-align: center;
+    width: 60%;
+}
+#welcome-section div h1 {
+    color: white;
+    font-size: 50px;
+    padding-bottom: 5px ;
+    
+    margin: 0;
+}
+#welcome-section div p {
+    font-style: italic;
+    font-weight: bold;
+    color: #C21E3C;
+    font-size: 35px;
+    padding-top: 0px;
+    margin: 5px;
+}
+
+#projects {
+    display: flex;
+    height: 100vh;
+   
+    background: #120335;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+
+}
+
+#projects div {
+ 
+    width: 30%;
+    height: 45%;
+    /* background-color: green; */
+    margin: 0px; 
+    /* border: 1px solid red; */
+}
+
+#projects div img {
+  
+    width: 80%;
+    margin-left:10%;
+    margin-right: 10%;
+    margin-bottom: 0px;
+    padding-bottom: 0px ;
+    
+}
+
+#h2_tribute {
+    background-color:#03050E;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    padding: 8px 8px;
+    margin: 0px;
+    margin-left:10%;
+    margin-right: 10%;
+}

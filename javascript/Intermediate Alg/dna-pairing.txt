@@ -1,0 +1,27 @@
+function pairElement(str) {
+  let result = [];
+  for(let i=0; i<str.length;i++){
+    let arr = []
+    if(str[i] === 'A'){
+      arr.push(str[i])
+      arr.push('T')
+    }
+    if(str[i] === 'T'){
+      arr.push(str[i])
+      arr.push('A')
+    }
+    if(str[i] === 'C'){
+      arr.push(str[i])
+      arr.push('G')
+    }
+    if(str[i] === 'G'){
+      arr.push(str[i])
+      arr.push('C')
+    }
+    result.push(arr)
+  }
+  return result
+}
+
+
+console.log(pairElement("ATCGA"));
