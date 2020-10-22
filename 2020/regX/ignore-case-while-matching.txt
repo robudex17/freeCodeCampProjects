@@ -1,0 +1,7 @@
+let myString = "freeCodeCamp";
+let fccRegex = /FREECODECAMP/i; // Change this line
+let result = fccRegex.test(myString);
+
+if(result){
+    console.log('There is a match');
+}
