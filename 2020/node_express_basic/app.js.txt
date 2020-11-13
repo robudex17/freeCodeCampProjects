@@ -1,0 +1,83 @@
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+
+console.log('Hello World');
+
+// app.get('/', function(req, res){
+//   res.send('Hello Express');
+// })
+
+//service static asset (eg css or javascript)
+app.use(express.static(__dirname + '/public'));
+
+//body parser Middleware
+app.use(bodyParser.urlencoded({extended:false}));
+
+app.get('/', function (req,res){
+  res.sendFile(__dirname + '/views/index.html')
+})
+
+//serve JSON on specific route and set value according 
+//to value of env file.
+
+// app.get('/json', function(req,res){
+//   var response ;
+//   if(process.env.MESSAGE_STYLE==="uppercase"){
+//     response = "Hello json".toUpperCase();
+//   }else{
+//      response = "Hello json";
+//   }
+//   res.json({
+//     message: response
+//   });
+// })
+
+//Implement a Root-Level Request Logger Middleware
+
+app.use(function(req,res, next){
+  console.log( `${req.method} ${req.path} - ${req.ip}` );
+  next();
+})
+
+//chain Middleware
+app.get('/now', function(req,res,next){
+  req.time = new Date().toString();
+  next()
+},function(req,res){
+  res.json({
+    time: req.time
+  })
+});
+
+//get Route Parameter Input from the Client
+
+app.get('/:word/echo', function(req,res){
+  res.json({echo: req.params.word});
+});
+
+
+//Get Query Parameter Input from the Client
+
+// app.get('/name', function(req,res){
+//   let firstname = req.query.first;
+//   let lastname = req.query.last;
+
+//   res.json({
+//     name: `${firstname} ${lastname}`
+//   })
+// })
+
+
+
+
+//Used body-parser to Parse POST REquest
+app.post('/name', function(req,res, next){
+
+     res.json({
+       name: `${req.body.first} ${req.body.last}`
+     })
+})
+
+
+ module.exports = app;
