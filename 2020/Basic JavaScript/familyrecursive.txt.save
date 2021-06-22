@@ -1,0 +1,96 @@
+
+var familytree = {
+   name: "roman",
+   children: [
+     {
+       name: "rogler",
+       children: [
+         {name:"bg",children:[]},{name:"rm", children:[]},{name:"ryko",children:[]}
+       ]
+     },
+     {name: "rogmer", children:[]},
+     {name: "romer", children: [{name:"yana", children: []}]},
+     {name: "ria", children: [{name:"bblan", children: []},{name:"rion", children:[]}]},
+     {name: "regrace", children:[]},
+     {name: "fatima", children:[]},
+     {name: "bem", children:[]},
+     {name: "rica", children:[]}
+     
+   ]
+}
+
+function printallChild(t){
+  if(t.children.length === 0){
+    return
+  }else{
+    t.children.forEach(function(child){
+      console.log(child.name)
+      printallChild(child);
+    })
+  }
+}
+  
+ 
+var familytree = {
+   name: "roman",
+   children: [
+     {
+       name: "rogler",
+       children: [
+         {name:"bg",children:[]},{name:"rm", children:[]},{name:"ryko",children:[]}
+       ]
+     },
+     {name: "rogmer", children:[]},
+     {name: "romer", children: [{name:"yana", children: []}]},
+     {name: "ria", children: [{name:"bblan", children: []},{name:"rion", children:[]}]},
+     {name: "regrace", children:[]},
+     {name: "fatima", children:[]},
+     {name: "bem", children:[]},
+     {name: "rica", children:[]}
+     
+   ]
+}
+
+function printallChild(t){
+  if(t.children.length === 0){
+    return
+  }else{
+    t.children.forEach(function(child){
+      console.log(child.name)
+      printallChild(child);
+    })
+  }
+}
+  
+  
+printallChild(familytree)
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
