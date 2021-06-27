@@ -1,0 +1,9 @@
+function Dog(){
+  this.name = "BAit";
+  this.color = "Brown";
+  this.numLegs = 4;
+  this.sayLegs = function(){ return "I have 4 Legs"};
+
+
+}
+
