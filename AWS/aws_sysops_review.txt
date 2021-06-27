@@ -1,0 +1,10 @@
+Systems Manager Run Command
+    - remotely execute shell scripts  and securely manage   
+      the configuration of your instances.
+
+Service Health DashBoard 
+    - provide information about the regional availability of the service.
+
+
+AWS Trusted Advisor 
+    - monitor the service limits of the EC2 Instances.

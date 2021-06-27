@@ -1,0 +1,26 @@
+function bouncer(arr) {
+  var newArr = [];
+  var falsyArr = [false,null,0,NaN,undefined,""];
+  for(var i=0; i<arr.length; i++){
+    if(typeof arr[i] === 'number'  ){
+       if(!isNaN(arr[i]) && arr[i] > 0){
+         newArr.push(arr[i])
+       }
+    }
+    else if(falsyArr.indexOf(arr[i]) == -1){
+       newArr.push(arr[i])
+    }
+  }
+  console.log(newArr)
+  return newArr
+}
+
+bouncer([false, null, 0, NaN, undefined, ""]);
+
+
+
+
+
+
+
+

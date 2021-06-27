@@ -1,0 +1,20 @@
+function getIndexToIns(arr, num) {
+  //return 0 if array is empty
+  if(arr.length === 0){
+      return 0;
+  }
+  //sort elements from lowest to highest
+  arr.sort(function(a,b){
+    return a - b
+  })
+  var i = 0;
+  //return i base on the for loops codes
+  for(var i ; i< arr.length ; i++){
+   if(num <= Math.min(num,arr[i])){
+     return i;
+   }
+}
+  //return this if no match on the for loops
+  return i;
+}
+console.log(getIndexToIns([2, 5, 10], 12));
