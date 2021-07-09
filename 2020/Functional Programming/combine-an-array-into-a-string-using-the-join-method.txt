@@ -1,0 +1,15 @@
+function sentensify(str) {
+  var newStr = ""
+  var regex = /\W/g;
+ for (var i=0; i<str.length; i++){
+   if(regex.test(str[i])){
+     newStr+=" "
+   }else{
+     newStr+=str[i]
+   }
+ }
+ console.log(newStr)
+ return newStr.split(" ").join(" ")
+  // Only change code above this line
+}
+sentensify("May-the-force-be-with-you");

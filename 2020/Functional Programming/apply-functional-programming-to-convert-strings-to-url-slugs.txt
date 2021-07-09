@@ -1,0 +1,21 @@
+// Only change code below this line
+function urlSlug(title) {
+title = title.trim().toLowerCase();
+console.log(title)
+
+//  var urltitle = "";
+//  var regxpattern = /\W/g;
+//  for(var i=0; i<title.length;i++){
+//    if(regexpattern.test(title[i])){
+//      urltitle
+//    }
+//  }
+
+var url = title.split(" ").filter((el)=> el != "").join("-")
+
+console.log(url)
+return url
+}
+// Only change code above this line
+
+urlSlug("Aws Devops    proo  ")
