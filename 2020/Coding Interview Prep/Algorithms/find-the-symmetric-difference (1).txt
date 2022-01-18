@@ -1,0 +1,50 @@
+function sym(...args) {
+
+  var myargs = [...args]
+  
+  var filterArr = []
+  function filterdup (arr){
+    if(arr.length === 0){
+      return
+     }
+    
+    var slicedEl = arr.splice(0,1)[0].sort().filter((el,index,arr) => el!= arr[index+1])
+    filterArr.push(slicedEl)
+    filterdup(arr)
+  }
+  filterdup(myargs)
+  
+  var symetricArr = []
+  
+  function symetric(arr){
+    if(arr.length === 1){
+      symetricArr = [...arr[0]]
+      return
+    }
+    var removedElements = arr.splice(0,2)
+    var A = removedElements[0]
+    var B = removedElements[1]
+    var AB = []
+    
+    for(var i=0; i<A.length; i++){
+      if(!B.includes(A[i])){
+        AB.push(A[i])
+      }
+    }  
+    for(var j=0; j<B.length; j++){
+      if(!A.includes(B[j])){
+        AB.push(B[j])
+      }
+    }
+      
+    arr.unshift(AB)
+     symetric(arr)
+     
+  }
+  symetric(filterArr)
+  console.log(symetricArr.sort())
+  return symetricArr
+      
+}
+
+ sym([1, 2, 3],[5, 2, 1, 4],[1]);

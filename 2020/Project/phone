@@ -1,0 +1,36 @@
+// 555-555-5555
+// (555)555-5555
+// (555) 555-5555
+// 555 555 5555
+// 
+// 1 555 555 5555
+
+function telephoneCheck(str) {
+  //check if there is invalid character
+  //if 11 digits first digit should be 1
+  //if 10 digits area code must correct
+  var regex_invalid_char = /([%$*&!#?a-z])/gi
+  var regex_count_numbers = /\d/gi
+  var validphone_numbers_length = str.match(regex_count_numbers).length
+var possible_pattern = /(^1\s?(\d{3}|\(\d{3}\))\s?-?\d{3}\s?-?\d{4})| /gi
+ 
+  
+  if(!regex_invalid_char.test(str) && (validphone_numbers_length === 10 || validphone_numbers_length === 11)){
+    if(possible_pattern.test(str)){
+      return true;
+    }
+    
+  }
+  return false;
+  
+}
+
+console.log(telephoneCheck("555555-5555"));
+
+
+
+
+
+
+
+

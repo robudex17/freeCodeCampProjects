@@ -1,0 +1,82 @@
+//{status: "INSUFFICIENT_FUNDS", change: []}
+
+// dont forget to devide the the availble currency base on dollar conversion
+//and use for loop to get the result
+
+//step 1 get the total amound of the cash register
+//if the total amount is less than to change return insuffiencent fund
+//if equl return close
+//if greater to the further computation
+
+function checkCashRegister(price, cash, cid) {
+  var change = [];
+ 
+  var currency_Arr = [
+    ['PENNY', 0.01],
+    ['NICKEL', 0.05 ],
+    [ 'DIME', 0.1 ],
+    [ 'QUARTER', 0.25],
+    [ 'ONE', 1],
+    [ 'FIVE', 5],
+    [ 'TEN', 10],
+    [ 'TWENTY',20],
+    [ 'ONE HUNDRED',100]
+  ]
+   var currency_Obj = {
+     'PENNY' : 0.01,
+     'NICKEL': 0.05 ,
+     'DIME' : 0.1 ,
+     'QUARTER': 0.25,
+     'ONE': 1,
+     'FIVE': 5,
+     'TEN': 10,
+     'TWENTY':20,
+     'ONE HUNDRED':100
+  }
+  var ch = cash - price
+  var totalfund = cid.map(el => el[1]).reduce((total,el) => total+el)
+  var searchforexactamount = cid.filter(el => el[1] == ch)
+  console.log(searchforexactamount)
+  
+  if(totalfund < ch){
+   return {status: "INSUFFICIENT_FUNDS", change: []}
+  }
+  
+  if(searchforexactamount.length !== 0){
+    return {status: "CLOSED", change: [...cid]}
+  }
+ 
+  for(var i = cid.length-1; i>=0 ; i--){
+    var unit = currency_Obj[cid[i][0]]
+    var availableAmount = cid[i][1]
+    if(unit > ch && availableAmount > ch){
+      continue
+    }
+    ch -=availableAmount
+    ch = Math.round(ch * 100) / 100
+    if(ch < 0 ){
+      ch += availableAmount
+      var remainder = ch % unit
+      if(remainder == 0){
+        change.push([cid[i][0],ch])
+        cid[i][1] = availableAmount - ch
+        return {status: "OPEN", change: change}
+      }else{
+        var wholenumber = Math.floor(ch/unit) * unit
+        cid[i][1] = availableAmount - wholenumber
+        ch = remainder
+        change.push([cid[i][0],wholenumber])
+      }
+    }else{
+      change.push(cid[i])
+    }
+    
+    
+  }
+  return {status: "OPEN", change: change}
+
+
+}
+
+console.log(checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]])) //should return {status: "OPEN", change: [["TWENTY", 60], ["TEN", 20], ["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]}
+console.log(checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]))// should return {status: "INSUFFICIENT_FUNDS", change: []

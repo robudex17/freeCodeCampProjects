@@ -3,5 +3,5 @@ Observability
  - Logs 
  - Traces 
 
- 
-  
+
+ CloudWatch - aws monitoring solutions 
