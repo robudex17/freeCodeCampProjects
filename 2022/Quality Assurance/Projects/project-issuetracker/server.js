@@ -4,11 +4,16 @@ const express     = require('express');
 const bodyParser  = require('body-parser');
 const expect      = require('chai').expect;
 const cors        = require('cors');
+const connectDB =   require('./config/db')
+
 require('dotenv').config();
+
+connectDB()
 
 const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
+
 
 let app = express();
 
@@ -45,6 +50,16 @@ app.use(function(req, res, next) {
     .type('text')
     .send('Not Found');
 });
+
+//error handling Middleware
+app.use((error,req,res, next) => {
+  console.log('error will came here')
+  if(error){
+    
+    return res.json(error)
+    
+  }
+})
 
 //Start our server and tests!
 const listener = app.listen(process.env.PORT || 3000, function () {
